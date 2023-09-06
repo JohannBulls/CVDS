@@ -11,7 +11,7 @@ public class RegistryTest {
         RegisterResult result = registry.registerVoter(person);
         Assert.assertEquals(RegisterResult.NULLPERSON, result);
     }
-    // TODO Complete with more test cases
+
     @Test
     public void testPersonWithoutParameters() {
         Person person = new Person();
@@ -26,6 +26,7 @@ public class RegistryTest {
     public void validatNegativedAge(){
         Person person = new Person();
         person.setName("Johann");
+        person.setAlive(true);
         person.setAge(-10);
         RegisterResult result = registry.registerVoter(person);
         Assert.assertEquals(RegisterResult.INVALID_AGE, result);
@@ -35,6 +36,7 @@ public class RegistryTest {
         Person person = new Person();
         person.setName("Johann");
         person.setAge(0);
+        person.setAlive(true);
         RegisterResult result1 = registry.registerVoter(person);
         Assert.assertEquals(RegisterResult.UNDERAGE, result1);
 
@@ -52,6 +54,7 @@ public class RegistryTest {
         Person person = new Person();
         person.setName("Johann");
         person.setAge(18);
+        person.setAlive(true);
         person.setVoted();
         RegisterResult result1 = registry.registerVoter(person);
         Assert.assertEquals(RegisterResult.DUPLICATED, result1);

@@ -8,6 +8,7 @@ public class Registry {
         if(!p.isAlive()){
             return RegisterResult.DEAD;
         }
+        
         if (p.getAge() < 18 && p.getAge() >= 0){
             return RegisterResult.UNDERAGE;
         }
